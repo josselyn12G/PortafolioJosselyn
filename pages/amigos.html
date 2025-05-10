@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historias de Amigos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-background: #f8f8f8;
+            --color-text: #333333;
+            --color-accent: #d4b8a0;
+            --color-light-accent: #f0e6de;
+            --color-dark-accent: #8a7968;
+            --color-white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            padding-top: 80px; /* Espacio para el encabezado fijo */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--color-dark-accent);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .friends-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8rem;
+            margin: 5rem 0;
+        }
+        
+        .friend-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .friend-card:nth-child(even) {
+            flex-direction: column-reverse;
+        }
+        
+        .photo-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .friend-card:nth-child(even) .photo-container {
+            margin-bottom: 0;
+            margin-top: 2rem;
+        }
+        
+        .friend-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .name-tag {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+        
+        .friend-card:nth-child(even) .name-tag {
+            top: 0;
+            bottom: auto;
+            transform: translateY(-100%);
+        }
+        
+        .photo-container:hover .name-tag {
+            transform: translateY(0);
+        }
+        
+        .friend-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+        
+        .story-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--color-white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .story-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--color-dark-accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .story-text {
+            font-size: 1rem;
+            color: var(--color-text);
+            line-height: 1.8;
+        }
+        
+        .accent-line {
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-accent);
+            margin: 1.5rem auto;
+        }
+        
+        .color-dots {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        
+        .dot-1 {
+            background-color: var(--color-accent);
+        }
+        
+        .dot-2 {
+            background-color: var(--color-dark-accent);
+        }
+        
+        .dot-3 {
+            background-color: var(--color-light-accent);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+            color: var(--color-dark-accent);
+            font-size: 0.9rem;
+        }
+        
+        @media (min-width: 768px) {
+            .friend-card {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+                gap: 4rem;
+            }
+            
+            .friend-card:nth-child(even) {
+                flex-direction: row-reverse;
+                text-align: right;
+            }
+            
+            .photo-container {
+                flex: 0 0 400px;
+                margin-bottom: 0;
+            }
+            
+            .friend-card:nth-child(even) .photo-container {
+                margin-top: 0;
+            }
+            
+            .story-container {
+                flex: 1;
+            }
+            
+            .accent-line {
+                margin: 1.5rem 0;
+            }
+            
+            .friend-card:nth-child(even) .accent-line {
+                margin-left: auto;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .friends-grid {
+                gap: 12rem;
+            }
+            
+            .friend-card {
+                gap: 6rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .photo-container {
+                height: 400px;
+            }
+            
+            body {
+                padding-top: 70px; /* Ajuste para móviles */
+            }
+        }
+
+        /* Encabezado principal fijo - Estilos mejorados */
+        .main-header {
+            background-color: rgba(255, 255, 255, 0.98);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            height: 80px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-dark-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: var(--color-accent);
+        }
+        
+        .menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .menu a {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .menu a:hover {
+            color: var(--color-accent);
+        }
+        
+        .menu a:hover:after {
+            width: 100%;
+        }
+        
+        @media (max-width: 600px) {
+            .main-header {
+                padding: 1rem;
+                height: 70px;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .logo {
+                margin-bottom: 0.5rem;
+                font-size: 1.3rem;
+            }
+            
+            .menu {
+                gap: 1rem;
+            }
+            
+            .menu a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado fijo mejorado -->
+    <header class="main-header">
+        <a href="#" class="logo">Portfolio</a>
+        <nav class="menu">
+            <a href="/index.html">Inicio</a>
+            <a href="/pages/estudios.html">Estudios</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <header>
+            <h1>Mis Amigos</h1>
+            <div class="accent-line"></div>
+            <p class="subtitle">Pequeñas historias que revelan las grandes personalidades de mis amigos más queridos</p>
+        </header>
+        
+        <main class="friends-grid">
+            <!-- Amigo 1 -->
+            <article class="friend-card">
+                <div class="photo-container">
+                    <img src="/assets/adri.jpeg" alt="Adri" class="friend-photo">
+                    <div class="name-tag">
+                        <h2 class="friend-name">Adri</h2>
+                    </div>
+                </div>
+                
+                <div class="story-container">
+                    <p class="story-quote">"El que siempre está dispuesto a la aventura sin importar las consecuencias"</p>
+                    <div class="accent-line"></div>
+                    <p class="story-text">Adri fue mi primer amigo en la universidad y, desde entonces, siempre ha sido una fuente inagotable de alegría y apoyo. Es sumamente divertido, chistoso y siempre ve el lado positivo de las cosas. Nunca olvidaré cómo, incluso en los momentos más difíciles, encontraba la manera de hacerme reír. Completamente auténtico, siempre ha estado a mi lado sin condiciones, y por eso ocupa un lugar muy especial en mi vida.</p>
+                </div>
+                
+            </article>
+            
+            <!-- Amigo 2 -->
+            <article class="friend-card">
+                <div class="photo-container">
+                    <img src="/assets/meli.jpeg" alt="Meli" class="friend-photo">
+                    <div class="name-tag">
+                        <h2 class="friend-name">Meli</h2>
+                    </div>
+                </div>
+                
+                <div class="story-container">
+                    <p class="story-quote">"La que transforma lo ordinario en extraordinario con su creatividad"</p>
+                    <div class="accent-line"></div>
+                    <p class="story-text">Meli es una de mis amistades más duraderas. Nos conocimos cuando teníamos 12 años, al entrar juntas al IDV, y desde entonces hemos compartido una infinidad de momentos que nos han unido profundamente. Hemos reído, llorado, soñado y crecido juntas, acompañándonos en cada etapa importante de la vida. Su forma de ver el mundo siempre ha sido única: convierte cualquier situación cotidiana en algo especial con su creatividad y su sensibilidad. Estar con ella es recordar que, incluso en la rutina, hay belleza si se mira con el corazón.</p>
+                </div>
+                
+            </article>
+            
+            <!-- Amigo 3 -->
+            <article class="friend-card">
+                <div class="photo-container">
+                    <img src="/assets/colegio 4.jpeg" alt="Paula" class="friend-photo">
+                    <div class="name-tag">
+                        <h2 class="friend-name">Paula</h2>
+                    </div>
+                </div>
+                
+                <div class="story-container">
+                    <p class="story-quote">"El eterno optimista que siempre tiene un plan B, C y hasta Z"</p>
+                    <div class="accent-line"></div>
+                    <p class="story-text">Paula es una chica asombrosa, con un corazón tan noble que siempre encuentra la manera de apoyar a los demás. La conocí en la buseta del colegio, y aunque al principio fue una coincidencia, rápidamente se convirtió en una amistad que atesoro hasta hoy. Tiene el don de decir justo lo que uno necesita escuchar, con palabras tan bonitas y sinceras que siempre logran reconfortar. Su presencia es paz, y su forma de ver la vida inspira. Paula no solo escucha, sino que entiende, y eso la hace única.</p>
+                </div>
+                
+            </article>
+        </main>
+        
+        <div class="color-dots">
+            <div class="dot dot-1"></div>
+            <div class="dot dot-2"></div>
+            <div class="dot dot-3"></div>
+        </div>
+        
+        <footer>
+            <p>Diseñado con cariño para preservar nuestras mejores historias juntos</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis Equipos de Fútbol</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    .seccion {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .fila {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+
+    .fila:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .contenido {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .contenido h2 {
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .contenido p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .contenido a {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .contenido a:hover {
+      color: #005fa3;
+    }
+
+    .video {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .video video {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .encabezado {
+            background-color: #0084ff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* Cambiado a fixed para asegurar que siempre esté en la parte superior */
+            top: 0;
+            left: 0;
+            right: 0; /* Asegura que ocupe todo el ancho */
+            z-index: 1000; /* Valor alto para asegurar que esté por encima de todo */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Añadido sombra para mejor visualización */
+            width: 100%; /* Asegura que ocupe todo el ancho */
+        }
+    
+        .menu {
+            display: flex;
+            justify-content: flex-end; /* Alinea los enlaces a la derecha */
+            width: 95%;
+        }
+
+        .menu a {
+            text-align: right;
+            margin: 0 1rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #127597;
+        }
+
+    .video video:hover {
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 768px) {
+      .fila {
+        flex-direction: column !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="menu">
+      <a href="/index.html">Inicio</a>
+      <a href="/pages/estudios.html">Estudios</a>
+    </nav>
+</header>
+
+<section class="seccion">
+  <div class="fila">
+    <div class="video">
+      <video controls>
+        <source src="/assets/Video Gol.mp4" type="video/mp4">
+        Tu navegador no soporta videos.
+      </video>
+    </div>
+    <div class="contenido">
+      <h2>Amazonas</h2>
+      <p>Fue mi primer equipo. Recuerdo especialmente un gol que marqué desde la mitad de la cancha a partir de un tiro libre, una experiencia inolvidable.</p>
+      <a href="#">Ver más →</a>
+    </div>
+  </div>
+
+  <div class="fila">
+    <div class="video">
+      <video controls>
+        <source src="/assets/Video Gol (2).mp4" type="video/mp4">
+        Tu navegador no soporta videos.
+      </video>
+    </div>
+    <div class="contenido">
+      <h2>Disgart</h2>
+      <p>En este equipo marqué un potente gol que pasó por debajo de la barrera, una jugada rápida y precisa que definió el partido.</p>
+      <a href="#">Ver más →</a>
+    </div>
+  </div>
+
+  <div class="fila">
+    <div class="video">
+      <video controls>
+        <source src="/assets/gol 5.mp4" type="video/mp4">
+        Tu navegador no soporta videos.
+      </video>
+    </div>
+    <div class="contenido">
+      <h2>Auroras</h2>
+      <p>Mi equipo actual. Logré anotar un gol al ángulo con una volea, una muestra de la pasión y entrenamiento constante que vivimos cada fin de semana.</p>
+      <a href="#">Ver más →</a>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>

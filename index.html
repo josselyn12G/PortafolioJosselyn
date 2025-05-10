@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portafolio Personal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&family=Anton&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #0e0e10;
+      color: white;
+    }
+
+    .encabezado {
+      background-color: #090b13;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .encabezado h1 {
+      color: #00bfff;
+      font-size: 1.5rem;
+    }
+
+    .menu a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: #00bfff;
+    }
+
+    .presentacion {
+      background-image: url('/assets/yo fondo.jpeg');
+      background-size: cover;
+      background-position: center 60%;
+      height: 60vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+    }
+
+    /* Estilo para el texto de "Bienvenid@" */
+    .presentacion h2 {
+      font-family: 'Anton', sans-serif; /* Fuente llamativa */
+      padding: 1rem 2rem;
+      font-size: 3rem; /* Tamaño grande */
+      border-radius: 10px;
+    }
+
+    .categorias {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .tarjeta-categoria {
+      background-color: #1c1c1f;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      flex: 1 1 120px;
+      text-align: center;
+      font-weight: bold;
+      color: #ffffff;
+      border: 2px solid transparent;
+      transition: transform 0.3s, border 0.3s;
+    }
+
+    .tarjeta-categoria:hover {
+      transform: scale(1.05);
+      border-color: #00bfff;
+    }
+
+    section {
+      padding: 0 2rem 2rem;
+    }
+
+    /* Estilo para "Fotos destacadas" */
+    h3 {
+      font-family: 'Anton', sans-serif; /* Fuente llamativa */
+      font-size: 2.5rem; /* Tamaño grande */
+      text-align: left;
+      letter-spacing: 1px;
+      text-transform: uppercase; /* Estilo minimalista */
+    }
+
+    .galeria {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      padding-top: 3rem;
+      padding-left: 2-5rem;
+    }
+
+    .galeria::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tarjeta-foto {
+      flex: 0 0 auto;
+      width: 180px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      background-color: #1c1c1f;
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+      perspective: 1000px;
+    }
+
+    /* Efecto hover 3D y ampliación */
+    .tarjeta-foto:hover {
+      transform: translateY(-10px) rotateX(5deg) rotateY(-5deg) scale(1.1); /* Ampliación */
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .tarjeta-foto img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    .tarjeta-foto p {
+      padding: 0.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="encabezado">
+    <h1>Portafolio Personal</h1>
+    <nav class="menu">
+      <a href="/index.html">Inicio</a>
+      <a href="/pages/estudios.html">Estudios</a>
+    </nav>
+  </header>
+
+  <div class="presentacion">
+    <h2>¡Bienvenid@! Soy Josselyn Guevara</h2>
+  </div>
+
+  <section class="categorias">
+    <a href="/pages/amigos.html" class="tarjeta-categoria">Amigos</a>
+    <a href="/pages/mascotas.html" class="tarjeta-categoria">Mis Mascotas</a>
+    <a href="/pages/equipos.html" class="tarjeta-categoria">Mis equipos de fútbol</a>
+    <a href="/pages/goles.html" class="tarjeta-categoria">Mis mejores goles</a>
+  </section>
+  
+
+  <section>
+    <h3>Fotos destacadas</h3>
+    <div class="galeria">
+      <div class="tarjeta-foto">
+        <img src="/assets/Familia ma.jpeg" alt="Mi familia">
+        <p>Un momento especial con mi familia</p>
+      </div>
+      <div class="tarjeta-foto">
+        <img src="/assets/Familia p.jpeg" alt="Reunión familiar">
+        <p>La unión que siempre me llena de alegría</p>
+      </div>
+      <div class="tarjeta-foto">
+        <img src="/assets/Hermanito .jpeg" alt="Hermanito">
+        <p>Mi hermanito, mi compañero de aventuras</p>
+      </div>
+      <div class="tarjeta-foto">
+        <img src="/assets/Hermanito.jpeg" alt="Con mi hermanito">
+        <p>Los momentos más divertidos siempre son con él</p>
+      </div>
+      <div class="tarjeta-foto">
+        <img src="/assets/familia 2.jpeg" alt="Familia">
+        <p>La familia es lo más importante en mi vida</p>
+      </div>
+      <div class="tarjeta-foto">
+        <img src="/assets/hermanito 1.jpeg" alt="Con mi hermanito">
+        <p>Mi hermanito, siempre a mi lado</p>
+      </div>
+    </div>
+  </section>
+  
+</body>
+</html>

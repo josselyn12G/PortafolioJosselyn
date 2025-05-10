@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis Mascotas</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.imgur.com/MGqZywG.png') repeat;
+      background-size: 80px;
+      color: #333;
+    }
+
+
+    .mascota {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 10px;
+      gap: 20px;
+    }
+
+    .mascota img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .texto {
+      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .texto h2 {
+      font-size: 2rem;
+      color: #4b0082;
+      margin-bottom: 10px;
+    }
+
+    .texto p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* Mascota alternada */
+    .mascota.reversa {
+      flex-direction: row-reverse;
+    }
+
+    @media screen and (max-width: 768px) {
+      .mascota, .mascota.reversa {
+        flex-direction: column;
+      }
+      .mascota img, .texto {
+        max-width: 90%;
+      }
+    }
+
+    .encabezado {
+      background-color: #ff8c42;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .encabezado h1 {
+      color: #ffffff;
+      font-size: 1.5rem;
+    }
+
+    .menu a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: #00bfff;
+    }
+  </style>
+</head>
+<body>
+
+    <header class="encabezado">
+        <h1>Mis Mascotas</h1>
+        <nav class="menu">
+          <a href="/index.html">Inicio</a>
+          <a href="/pages/estudios.html">Estudios</a>
+        </nav>
+    </header>
+
+    <section class="mascota">
+      <img src="/assets/mascota scotch.jpeg" alt="Scotchy">
+      <div class="texto">
+        <h2>Scotchy</h2>
+        <p>Scotchy tiene 7 años y fue un regalo de cumpleaños muy especial. Es un perro amoroso, cariñoso y muy leal. Aunque no le gusta comer pepas, ¡adora la costilla! Siempre mueve la cola cuando escucha el sonido del refrigerador. Le encanta acurrucarse en el sofá y mirar contigo series de televisión como si entendiera cada escena. Es un compañero de vida excepcional, con una mirada que te derrite el corazón.</p>
+      </div>
+    </section>
+    
+    <section class="mascota reversa">
+      <img src="/assets/mascota 1.jpeg" alt="Jasper">
+      <div class="texto">
+        <h2>Jasper</h2>
+        <p>Jasper es un Shih Tzu de 4 años lleno de energía y travesuras. Es muy juguetón y molesto cuando quiere atención, ¡pero cómo no amarlo! Lo que más le gusta son los charcos: no importa si está limpio, siempre termina empapado y embarrado. Su pasatiempo favorito es perseguir mariposas y hacer excavaciones en el jardín como si fuera un pequeño arqueólogo. A pesar de su tamaño, es muy valiente y siempre defiende su casa con ladridos ruidosos.</p>
+      </div>
+    </section>
+    
+
+</body>
+</html>
+
